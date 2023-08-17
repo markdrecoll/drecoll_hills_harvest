@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/user.model')
+const Order = require('./models/order.model')
 const jwt = require('jsonwebtoken')
 
 app.use(cors());
@@ -94,6 +95,32 @@ app.get('/api/testget', async (request, response) => {
 //         response.json({ status: 'error', error: 'invalid token' });
 //     }
 // });
+
+app.post('/api/placeorder', async (request, response) => {
+    console.log(request.body);
+    try {
+        await Order.create({
+            item: request.body.item,
+            type: request.body.type,
+            quantity: request.body.quantity,
+        });
+        response.json({ status: 'ok' });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.get('/api/getorders', async (request, response) => {
+
+    try {
+        let allOrders = await Order.find();
+        response.json({ allOrders });
+    } catch (error) {
+        console.log(error);
+    }
+    return response.json;
+    
+});
 
 app.listen(1337, () => {
     console.log("Server started on 1337");

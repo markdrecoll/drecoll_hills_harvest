@@ -1,8 +1,11 @@
 // import { useEffect, useState } from 'react'
 // import jwt_decode from 'jwt-decode';
 // import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
-const Dashboard = () => {
+
+const ViewOrders = () => {
 
     // let navigate = useNavigate();
     // const [quote, setQuote] = useState('')
@@ -37,8 +40,17 @@ const Dashboard = () => {
     // })
 
     // return <h1>Your quote: {quote || 'No Quote Found'}</h1>
-    return <h1>Dashboard page under construction</h1>
+    return (
+        <>
+            <h1>View Orders page under construction</h1>
 
+
+            <Button variant="success">Success</Button>{' '}
+            <br />
+            <br />
+            <Link to={`/`}>Home</Link>
+        </>
+    )
 }
 
-export default Dashboard;
+export default ViewOrders;

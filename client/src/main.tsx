@@ -8,7 +8,10 @@ import App from './App'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import PlaceOrder from './pages/PlaceOrder';
+import ViewOrders from './pages/ViewOrders';
 import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/placeorder",
+    element: <PlaceOrder />,
+  },
+  {
+    path: "/vieworders",
+    element: <ViewOrders />,
   },
 ]);
 
