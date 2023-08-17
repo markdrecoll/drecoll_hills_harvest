@@ -114,6 +114,7 @@ app.get('/api/getorders', async (request, response) => {
 
     try {
         let allOrders = await Order.find();
+        console.log(allOrders);
         response.json({ allOrders });
     } catch (error) {
         console.log(error);
