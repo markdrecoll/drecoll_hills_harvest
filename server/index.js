@@ -40,12 +40,60 @@ app.post('/api/login', async (request, response) => {
             },
             'secret123'
         )
-
         return response.json({ status: 'ok', user: token })
     } else {
         return response.json({ status: 'error', user: false })
     }
 });
+
+app.get('/api/quote', async (request, response) => {
+
+    const token = request.headers['Authorization'];
+    console.log('authorization header at get request:', token)
+    return response.json({ token });
+    
+
+    // try{
+    //     const decoded = jwt.verify(token, 'secret123');
+    //     const email = decoded.email;
+    //     const user = await User.findOne({ email: email });
+
+    //     return response.json({ status: 'ok', token: token, decoded: decoded });
+        
+    // } catch (error) {
+    //     console.log(error);
+    //     response.json({ status: 'error', error: 'invalid token', token: token });
+    // }
+});
+
+app.get('/api/testget', async (request, response) => {
+
+    const token = request.headers['Authorization'];
+    console.log('the new get has been hit!')
+    console.log('authorization header at get request:', token);
+    
+
+});
+
+// app.post('/api/quote', async (request, response) => {
+
+//     const token = request.headers['Authorization'];
+
+//     try{
+//         const decoded = jwt.verify(token, 'secret123');
+//         const email = decoded.email;
+//         const user = await User.updateOne(
+//             { email: email },
+//             { $set : { quote: request.body } }
+//         );
+
+//         return { status: 'ok' }
+        
+//     } catch (error) {
+//         console.log(error);
+//         response.json({ status: 'error', error: 'invalid token' });
+//     }
+// });
 
 app.listen(1337, () => {
     console.log("Server started on 1337");
