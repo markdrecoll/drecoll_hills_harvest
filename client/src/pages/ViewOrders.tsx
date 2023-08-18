@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import NavigationMenu from "../components/NavigationMenu";
 
 
 const ViewOrders = () => {
@@ -56,19 +57,59 @@ const ViewOrders = () => {
       
       ];
 
-    const [orderList, setOrderList] = useState('')
+    const [orderList, setOrderList] = useState(applicants);
 
-    const sendUserAlert = () => {
-        alert(import.meta.env.VITE_SOME_KEY);
-        console.log(import.meta.env.VITE_SOME_KEY);
+    let marktest: any = [];
+
+    // async function populateQuote() {
+    //     const request = await fetch('http://localhost:1337/api/getorders', {
+    //         // headers: {
+    //         //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+    //         //   },
+    //     })
+
+    //     const data: any = request.json();
+    //     if(data){
+    //         console.log(data);
+    //     } else {
+    //         console.log("Error fetching orders.");
+    //     }
+    //     // console.log(data);
+    //     marktest = data.allOrders;
+    // }
+
+    async function populateQuote() {
+        const request = await fetch('http://localhost:1337/api/getorders')
+
+        const data: any = request.json();
+        if(data){
+            console.log(data);
+            setOrderList(data);
+        } else {
+            console.log("Error fetching orders.");
+        }
+        // console.log(data);
+        marktest = data;
+    }
+
+    // useEffect(() => {
+    //     populateQuote();
+    // }, []);
+
+
+
+    async function sendUserAlert (){
+        console.log(orderList);
+
     }
 
 
     return (
         <>
+            <NavigationMenu />
             <h1>View Orders page under construction</h1>
 
-            {applicants.map(function(data) {
+            {orderList.map(function(data) {
                 return (
                     <div>
                     Applicant name:  {data.name}
@@ -77,7 +118,8 @@ const ViewOrders = () => {
                 })}
 
 
-            <Button variant="success" onClick={sendUserAlert}>Success</Button>{' '}
+            <Button variant="success" onClick={populateQuote}>Success</Button>{' '}
+            <Button variant="warning" onClick={sendUserAlert}>tea</Button>{' '}
             <br />
             <br />
             <Link to={`/`}>Home</Link>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
+import NavigationMenu from "../components/NavigationMenu";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -33,6 +34,8 @@ function Login() {
 
   return (
     <>
+      <NavigationMenu />
+
       <div>
         <h1>Login</h1>
         <form onSubmit={loginUser}>

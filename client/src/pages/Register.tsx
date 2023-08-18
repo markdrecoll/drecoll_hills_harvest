@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import NavigationMenu from "../components/NavigationMenu";
 
 
 function Register() {
+  
   let navigate = useNavigate();
 
   const [name, setName] = useState('');
@@ -34,6 +36,7 @@ function Register() {
 
   return (
     <>
+      <NavigationMenu />
       <div>
         <h1>Register</h1>
         <form onSubmit={registerUser}>

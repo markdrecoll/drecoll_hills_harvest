@@ -1,6 +1,8 @@
 // import { useEffect, useState } from 'react'
 // import jwt_decode from 'jwt-decode';
 // import { useNavigate } from 'react-router-dom'
+import NavigationMenu from "../components/NavigationMenu";
+<NavigationMenu />
 
 const Dashboard = () => {
 
