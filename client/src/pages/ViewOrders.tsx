@@ -47,10 +47,13 @@ const ViewOrders = () => {
                                     <Card.Title>{order.item}</Card.Title>
                                     <Card.Text>
                                         <li>
-                                            {order.quantity}
+                                            {order.type}
                                         </li>
                                         <li>
-                                            {order.type}
+                                            {order.size}
+                                        </li>
+                                        <li>
+                                            {order.quantity}
                                         </li>
                                     </Card.Text>
                                 </Card.Body>
