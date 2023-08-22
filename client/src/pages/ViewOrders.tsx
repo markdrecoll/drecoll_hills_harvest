@@ -11,7 +11,7 @@ const ViewOrders = () => {
     // let navigate = useNavigate();
     // const [quote, setQuote] = useState('')
 
-    // async function populateQuote() {
+    // async function populateAllOrders() {
     //     const request = await fetch('http://localhost:1337/api/testget', {
     //         headers: {
     //             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -35,7 +35,7 @@ const ViewOrders = () => {
     //             localStorage.removeItem('token');
     //             navigate('/login', { replace: true });
     //         } else {
-    //             populateQuote();
+    //             populateAllOrders();
     //         }
     //     }
     // })
@@ -57,43 +57,43 @@ const ViewOrders = () => {
       
       ];
 
-    const [orderList, setOrderList] = useState(applicants);
+    const [orderList, setOrderList] = useState([]);
 
-    let marktest: any = [];
+    let testvar01: any = [];
 
-    // async function populateQuote() {
-    //     const request = await fetch('http://localhost:1337/api/getorders', {
-    //         // headers: {
-    //         //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-    //         //   },
-    //     })
+    async function populateAllOrders() {
+        const request = await fetch('http://localhost:1337/api/getorders', {
+            // headers: {
+            //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+            //   },
+        })
 
-    //     const data: any = request.json();
-    //     if(data){
-    //         console.log(data);
-    //     } else {
-    //         console.log("Error fetching orders.");
-    //     }
-    //     // console.log(data);
-    //     marktest = data.allOrders;
-    // }
-
-    async function populateQuote() {
-        const request = await fetch('http://localhost:1337/api/getorders')
-
-        const data: any = request.json();
+        const data: any = await request.json();
         if(data){
-            console.log(data);
-            setOrderList(data);
+            console.log(data.allOrders);
         } else {
             console.log("Error fetching orders.");
         }
         // console.log(data);
-        marktest = data;
+        setOrderList(data.allOrders)
     }
 
+    // async function populateAllOrders() {
+    //     const request = await fetch('http://localhost:1337/api/getorders')
+
+    //     const data: any = request.json();
+    //     if(data){
+    //         console.log(data);
+    //         // setOrderList(data);
+    //     } else {
+    //         console.log("Error fetching orders.");
+    //     }
+    //     // console.log(data);
+    //     testvar01 = data;
+    // }
+
     // useEffect(() => {
-    //     populateQuote();
+    //     populateAllOrders();
     // }, []);
 
 
@@ -112,13 +112,13 @@ const ViewOrders = () => {
             {orderList.map(function(data) {
                 return (
                     <div>
-                    Applicant name:  {data.name}
+                    Item:  {data.item}
                     </div>
                 )
                 })}
 
 
-            <Button variant="success" onClick={populateQuote}>Success</Button>{' '}
+            <Button variant="success" onClick={populateAllOrders}>Success</Button>{' '}
             <Button variant="warning" onClick={sendUserAlert}>tea</Button>{' '}
             <br />
             <br />

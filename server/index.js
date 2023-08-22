@@ -100,6 +100,7 @@ app.post('/api/placeorder', async (request, response) => {
     console.log(request.body);
     try {
         await Order.create({
+            key: request.body.key,
             item: request.body.item,
             type: request.body.type,
             quantity: request.body.quantity,

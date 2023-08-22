@@ -24,6 +24,7 @@ function PlaceOrder() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        key,
         item,
         type,
         quantity,
@@ -46,7 +47,7 @@ function PlaceOrder() {
       <div>
         <h1>PlaceOrder</h1>
 
-        <Row xs={1} md={4} className="g-4">
+        <Row xs={1} md={4} className="g-4 justify-content-md-center">
           {Array.from({ length: 3 }).map((_, idx) => (
             <Col key={idx}>
               <Card>
