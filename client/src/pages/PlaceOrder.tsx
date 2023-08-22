@@ -51,7 +51,7 @@ function PlaceOrder() {
           {Array.from({ length: 3 }).map((_, idx) => (
             <Col key={idx}>
               <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
+                <Card.Img variant="top" src="/hot_01.jpeg" />
                 <Card.Body>
                   <Card.Title>Card title</Card.Title>
                   <Card.Text>
