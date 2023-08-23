@@ -128,3 +128,9 @@ app.get('/api/getorders', async (request, response) => {
 app.listen(1337, () => {
     console.log("Server started on 1337");
 });
+
+// Order.deleteMany({ age: { $gte: 15 } }).then(function(){
+//     console.log("Data deleted"); // Success
+// }).catch(function(error){
+//     console.log(error); // Failure
+// });

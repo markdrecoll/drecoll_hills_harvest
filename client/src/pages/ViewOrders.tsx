@@ -7,6 +7,16 @@ import Row from 'react-bootstrap/Row';
 
 const ViewOrders = () => {
 
+    function getImageLocation(type: string) {
+        if (type === "Bread and Butter") {
+            return "/images/bread_and_butter_01.jpeg";
+        } else if (type === "Hot") {
+            return "/images/hot_01.jpeg";
+        } else if (type === "Kosher Dill") {
+            return "/images/kosher_dill_01.jpeg";
+        }
+    }
+
     const [orderList, setOrderList] = useState([]);
 
     async function populateAllOrders() {
@@ -38,11 +48,12 @@ const ViewOrders = () => {
 
             <Row xs={1} md={4} className="g-4 justify-content-md-center">
                 {orderList.map(function (order, index) {
+                    let imageLocation = getImageLocation(order["type"]);
 
                     return (
                         <Col key={index}>
                             <Card>
-                                <Card.Img variant="top" src="/images//hot_01.jpeg" />
+                                <Card.Img variant="top" src={imageLocation} />
                                 <Card.Body>
                                     <Card.Title>{order["item"]}</Card.Title>
                                     <Card.Text>
