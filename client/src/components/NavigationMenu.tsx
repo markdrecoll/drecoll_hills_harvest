@@ -9,7 +9,16 @@ function NavigationMenu() {
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
         <LinkContainer to={`/`}>
-          <Navbar.Brand href="#home">Home</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img
+                alt=""
+                src="/images/mikelogosmall.png"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              Drecoll Hills Harvest
+          </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

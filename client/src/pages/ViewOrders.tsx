@@ -42,18 +42,18 @@ const ViewOrders = () => {
                     return (
                         <Col key={index}>
                             <Card>
-                                <Card.Img variant="top" src="/hot_01.jpeg" />
+                                <Card.Img variant="top" src="/images//hot_01.jpeg" />
                                 <Card.Body>
-                                    <Card.Title>{order.item}</Card.Title>
+                                    <Card.Title>{order["item"]}</Card.Title>
                                     <Card.Text>
                                         <li>
-                                            {order.type}
+                                            {order["type"]}
                                         </li>
                                         <li>
-                                            {order.size}
+                                            {order["size"]}
                                         </li>
                                         <li>
-                                            {order.quantity}
+                                            {order["quantity"]}
                                         </li>
                                     </Card.Text>
                                 </Card.Body>

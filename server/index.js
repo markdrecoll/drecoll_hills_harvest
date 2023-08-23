@@ -97,15 +97,16 @@ app.get('/api/testget', async (request, response) => {
 // });
 
 app.post('/api/placeorder', async (request, response) => {
-    console.log(request.body);
+    
     try {
         await Order.create({
-            key: request.body.key,
             item: request.body.item,
             type: request.body.type,
+            size: request.body.size,
             quantity: request.body.quantity,
         });
-        response.json({ status: 'ok' });
+        response.json({ status: 'Order successfully placed.' });
+        console.log(request.body, "Has successfully been inserted into the database.");
     } catch (error) {
         console.log(error);
     }

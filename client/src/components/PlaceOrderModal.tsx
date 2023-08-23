@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function PlaceOrderModal() {
+function PlaceOrderModal(props: any) {
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [item, setItem] = useState('Pickle');
-    const [type, setType] = useState('Bread and Butter');
+    const item = props.itemChoice.item;
+    const type = props.itemChoice.type;
     const [size, setSize] = useState('Pint');
     const [quantity, setQuantity] = useState(1);
 
@@ -51,26 +51,13 @@ function PlaceOrderModal() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Bread and Butter Pickles</Modal.Title>
+                    <Modal.Title>{props.itemChoice.type} {props.itemChoice.item}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={placeOrder}>
-                        {/* <input
-                            value={"Pickles"}
-                            onChange={(e) => setItem(e.target.value)}
-                            type="text"
-                            placeholder="Item"
-                            readOnly={true}
-                        />
-                        <br />
-                        <input
-                            value={"Bread and Butter"}
-                            onChange={(e) => setType(e.target.value)}
-                            type="text"
-                            placeholder="Type"
-                            readOnly={true}
-                        />
-                        <br /> */}
+                        <label className="p-3">
+                            Size:
+                        </label>
                         <select
                             value={size}
                             onChange={(e) => setSize(e.target.value)}
@@ -78,7 +65,9 @@ function PlaceOrderModal() {
                             <option key={0} value={"Pint"}>Pint</option>
                             <option key={1} value={"Quart"}>Quart</option>
                         </select>
-                        <br />
+                        <label className="p-3">
+                            Quantity:
+                        </label>
                         <input
                             value={quantity}
                             onChange={(e) => setQuantity(parseInt(e.target.value))}
